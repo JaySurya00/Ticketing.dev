@@ -10,6 +10,13 @@ spec:
     - host: ticketing.dev
       http:
         paths:
+          - path: /api/payments/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: payments-srv
+                port:
+                  number: 3000
           - path: /api/users/?(.*)
             pathType: ImplementationSpecific
             backend:
@@ -35,6 +42,6 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: client-v2-srv
+                name: client-srv
                 port:
                   number: 3000
