@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
-import { useRouter, redirect } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import useRequest from "@/app/hooks/use-request";
 import { useUser } from "../../context/userContext";
 
