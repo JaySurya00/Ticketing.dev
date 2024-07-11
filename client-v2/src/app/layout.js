@@ -5,7 +5,7 @@ import Header from './components/header';
 import './globals.css'; // Import global styles
 import { UserProvider } from './context/userContext';
 
-const RootLayout = ({ children, context }) => {
+const RootLayout = ({ children }) => {
   return (
     <UserProvider>
       <html lang="en">

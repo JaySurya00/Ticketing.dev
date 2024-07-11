@@ -1,7 +1,6 @@
 // /app/page.js
 "use client";
 import Link from "next/link";
-import buildClient from "./api/build-client";
 import { useEffect, useState } from "react";
 
 const LandingPage = () => {
