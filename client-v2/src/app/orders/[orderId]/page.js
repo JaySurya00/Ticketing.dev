@@ -7,6 +7,7 @@ import { useUser } from "../../context/userContext";
 
 const OrderShow = ({ params }) => {
   const [order, setOrder] = useState(null);
+  console.log('from orders',order);
   const [timeLeft, setTimeLeft] = useState(0);
   const router = useRouter();
   const { currentUser } = useUser();

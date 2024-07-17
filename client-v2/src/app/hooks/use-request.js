@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -16,6 +16,7 @@ export default function useRequest({ url, method, body, onSuccess }) {
 
       return response.data;
     } catch (err) {
+      console.log('err', err);
       setErrors(
         <div className="alert alert-danger">
           <h4>Ooops....</h4>
@@ -30,4 +31,4 @@ export default function useRequest({ url, method, body, onSuccess }) {
   };
 
   return { doRequest, errors };
-};
+}
