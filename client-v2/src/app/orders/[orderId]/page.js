@@ -61,7 +61,7 @@ const OrderShow = ({ params }) => {
       <p>Time left to pay: {timeLeft} seconds</p>
       <StripeCheckout
         token={({id}) => doRequest({token: id })}
-        stripeKey="pk_test_JMdyKVvf8EGTB0Fl28GsN7YY" // Replace with your actual Stripe publishable key
+        stripeKey="pk_test_51PQnGwP1lPZGms1lJeVXGaUbsH3sQAhJIbWjjFtp7HTkoYipOWRyZzanElUBYPBZP0oGmaaXMOpVLjAwGQKtcJqq00GtBJqRQN" // Replace with your actual Stripe publishable key
         amount={order?.ticket?.price * 100}
         email={currentUser?.email}
       />
