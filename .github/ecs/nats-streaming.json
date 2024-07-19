@@ -1,0 +1,106 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:590184094833:task-definition/Nats-Streaming-Server:14",
+    "containerDefinitions": [
+        {
+            "name": "nats",
+            "image": "nats-streaming:0.17.0",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "nats-client-port",
+                    "containerPort": 4222,
+                    "hostPort": 4222,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                },
+                {
+                    "name": "nats-monitor-port",
+                    "containerPort": 8222,
+                    "hostPort": 8222,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "command": [
+                "-p",
+                "4222",
+                "-m",
+                "8222",
+                "-hbi",
+                "5s",
+                "-hbt",
+                "5s",
+                "-hbf",
+                "2",
+                "-SD",
+                "-cid",
+                "ticketing",
+                "--ack_wait",
+                "20s"
+            ],
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "dockerLabels": {
+                "app": "nats"
+            },
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/Nats-Streaming-Server",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "ap-south-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "Nats-Streaming-Server",
+    "executionRoleArn": "arn:aws:iam::590184094833:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 14,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-07-18T21:25:34.904Z",
+    "registeredBy": "arn:aws:iam::590184094833:user/jaysurya00",
+    "tags": []
+}
