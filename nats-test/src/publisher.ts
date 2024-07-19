@@ -4,7 +4,7 @@ import { TicketCreatedPublisher } from './events/ticket-created-publisher';
 console.clear();
 
 const stan = nats.connect('ticketing', 'abc', {
-  url: 'http://localhost:4222',
+  url: 'http://65.1.113.94:4222',
 });
 
 stan.on('connect', async () => {

@@ -6,7 +6,7 @@ export default ({ req }) => {
 
     return axios.create({
       baseURL:
-        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+        'http://Ticketing-LoadBalancer-1060785181.ap-south-1.elb.amazonaws.com',
       headers: req.headers,
     });
   } else {
