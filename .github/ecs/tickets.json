@@ -1,0 +1,106 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:590184094833:task-definition/Ticketing-tickets:18",
+    "containerDefinitions": [
+        {
+            "name": "tickets",
+            "image": "590184094833.dkr.ecr.ap-south-1.amazonaws.com/ticketing.dev:tickets",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "tickets-port",
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "JWT_KEY",
+                    "value": "muskansinghvi"
+                },
+                {
+                    "name": "NATS_CLIENT_ID",
+                    "value": "tickets-srv"
+                },
+                {
+                    "name": "NATS_CLUSTER_ID",
+                    "value": "ticketing"
+                },
+                {
+                    "name": "MONGO_URI",
+                    "value": "mongodb+srv://jaysurya00:Jay%40surya2001@projectscluster.aykhspt.mongodb.net/ticketsDB?retryWrites=true&w=majority&appName=ProjectsCluster"
+                },
+                {
+                    "name": "NATS_URL",
+                    "value": "nats://nats-streaming-server.ticketing-namespace:4222"
+                }
+            ],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/Ticketing-tickets",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "ap-south-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "Ticketing-tickets",
+    "executionRoleArn": "arn:aws:iam::590184094833:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 18,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-07-19T06:52:45.957Z",
+    "registeredBy": "arn:aws:iam::590184094833:user/jaysurya00",
+    "tags": []
+}
