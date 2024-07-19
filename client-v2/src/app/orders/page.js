@@ -15,6 +15,10 @@ const OrderIndex = () => {
     fetchOrders();
   }, []);
 
+  if(orders.length===0){
+    return <p>You don't have any order</p>
+  }
+
   return (
     <ul>
       {orders.map((order) => (
